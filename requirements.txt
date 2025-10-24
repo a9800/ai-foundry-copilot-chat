@@ -1,0 +1,6 @@
+pydantic
+semantic-kernel
+microsoft-agents-authentication-msal
+microsoft-agents-hosting-core
+microsoft-agents-hosting-aiohttp
+microsoft-agents-activity

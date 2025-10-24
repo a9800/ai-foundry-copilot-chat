@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.22/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.22",
+  "version": "1.0.0",
+  "id": "2dd28ec8-0997-477e-aaff-b29b0c6ca069",
+  "developer": {
+    "name": "Microsoft, Inc.",
+    "websiteUrl": "https://example.azurewebsites.net",
+    "privacyUrl": "https://example.azurewebsites.net/privacy",
+    "termsOfUseUrl": "https://example.azurewebsites.net/termsofuse"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "AgentSDK QuickStart",
+    "full": "AgentSDK QuickStart"
+  },
+  "description": {
+    "short": "Sample demonstrating a simple Agent that echos back user messages.",
+    "full": "Sample demonstrating AgentSDK + Teams to demonstrate a simple Agent that echos back user messages."
+  },
+  "accentColor": "#FFFFFF",
+  "copilotAgents": {
+    "customEngineAgents": [
+      {
+        "id": "2dd28ec8-0997-477e-aaff-b29b0c6ca069",
+        "type": "bot"
+      }
+    ]
+  },
+  "bots": [
+    {
+      "botId": "2dd28ec8-0997-477e-aaff-b29b0c6ca069",
+      "scopes": [
+        "personal"
+      ],
+      "supportsFiles": false,
+      "isNotificationOnly": false
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "2xhk9zkj-3978.inc1.devtunnels.ms"
+  ]
+}
