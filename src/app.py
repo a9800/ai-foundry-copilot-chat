@@ -21,7 +21,7 @@ from microsoft_agents.authentication.msal import MsalConnectionManager
 
 from microsoft_agents.activity import Attachment, load_configuration_from_env, Activity
 
-from .agent import WeatherForecastAgent
+from src.agent import InventoryDeliveryAgent
 
 load_dotenv()
 agents_sdk_config = load_configuration_from_env(environ)
@@ -31,7 +31,7 @@ CONNECTION_MANAGER = MsalConnectionManager(**agents_sdk_config)
 ADAPTER = CloudAdapter(connection_manager=CONNECTION_MANAGER)
 AUTHORIZATION = Authorization(STORAGE, CONNECTION_MANAGER, **agents_sdk_config)
 
-AGENT = WeatherForecastAgent(
+AGENT = InventoryDeliveryAgent(
     AzureChatCompletion(
         api_version=environ["AZURE_OPENAI_API_VERSION"],
         endpoint=environ["AZURE_OPENAI_ENDPOINT"],

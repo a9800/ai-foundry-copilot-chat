@@ -1,0 +1,79 @@
+{
+  "deliveries": [
+    {
+      "delivery_id": "DEL-001",
+      "store_id": "12",
+      "sku": "67890",
+      "quantity": 200,
+      "status": "scheduled",
+      "order_date": "2025-10-25T10:30:00Z",
+      "scheduled_delivery_date": "2025-10-28T14:00:00Z",
+      "supplier": "Tea Masters",
+      "cost_per_unit": 8.75,
+      "total_cost": 1750.00,
+      "tracking_number": "TM123456789"
+    },
+    {
+      "delivery_id": "DEL-002",
+      "store_id": "34",
+      "sku": "22222",
+      "quantity": 100,
+      "status": "in_transit",
+      "order_date": "2025-10-24T09:15:00Z",
+      "scheduled_delivery_date": "2025-10-27T11:00:00Z",
+      "estimated_delivery_date": "2025-10-27T15:30:00Z",
+      "supplier": "Healthy Snacks Co.",
+      "cost_per_unit": 15.99,
+      "total_cost": 1599.00,
+      "tracking_number": "HSC987654321"
+    },
+    {
+      "delivery_id": "DEL-003",
+      "store_id": "56",
+      "sku": "33333",
+      "quantity": 50,
+      "status": "delivered",
+      "order_date": "2025-10-23T14:20:00Z",
+      "scheduled_delivery_date": "2025-10-26T08:00:00Z",
+      "actual_delivery_date": "2025-10-26T09:30:00Z",
+      "supplier": "Dairy Fresh",
+      "cost_per_unit": 3.99,
+      "total_cost": 199.50,
+      "tracking_number": "DF555666777"
+    },
+    {
+      "delivery_id": "DEL-004",
+      "store_id": "12",
+      "sku": "11111",
+      "quantity": 150,
+      "status": "pending",
+      "order_date": "2025-10-27T16:45:00Z",
+      "scheduled_delivery_date": "2025-10-30T10:00:00Z",
+      "supplier": "Sweet Treats Inc.",
+      "cost_per_unit": 4.99,
+      "total_cost": 748.50,
+      "tracking_number": "STI444333222"
+    },
+    {
+      "delivery_id": "DEL-005",
+      "store_id": "56",
+      "sku": "12345",
+      "quantity": 500,
+      "status": "scheduled",
+      "order_date": "2025-10-26T11:00:00Z",
+      "scheduled_delivery_date": "2025-10-29T13:00:00Z",
+      "supplier": "Coffee Co.",
+      "cost_per_unit": 12.50,
+      "total_cost": 6250.00,
+      "tracking_number": "CC111222333"
+    }
+  ],
+  "delivery_statuses": {
+    "pending": "Order placed, awaiting supplier confirmation",
+    "scheduled": "Delivery confirmed and scheduled",
+    "in_transit": "Package shipped and on the way",
+    "delivered": "Successfully delivered to store",
+    "cancelled": "Order cancelled",
+    "delayed": "Delivery delayed beyond scheduled date"
+  }
+}

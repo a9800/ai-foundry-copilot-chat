@@ -13,31 +13,56 @@ from semantic_kernel.contents import ChatHistory
 from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
 from semantic_kernel.agents import ChatCompletionAgent, ChatHistoryAgentThread
 
-from src.plugins import DateTimePlugin, WeatherForecastPlugin, AdaptiveCardPlugin
+from src.plugins import DateTimePlugin, AdaptiveCardPlugin
+from src.plugins.inventory_plugin import InventoryManagementPlugin
+from src.plugins.delivery_plugin import DeliveryManagementPlugin
 
 
-class WeatherForecastAgentResponse(BaseModel):
+class InventoryDeliveryAgentResponse(BaseModel):
     contentType: str = Literal["Text", "AdaptiveCard"]
     content: Union[dict, str]
 
 
-class WeatherForecastAgent:
+class InventoryDeliveryAgent:
 
-    agent_name = "WeatherForecastAgent"
+    agent_name = "InventoryDeliveryAgent"
 
     agent_instructions = """
-            You are a friendly assistant that helps people find a weather forecast for a given time and place.
-            You may ask follow up questions until you have enough information to answer the customers question,
-            but once you have a forecast forecast, make sure to format it nicely using an adaptive card.
-            You should use adaptive JSON format to display the information in a visually appealing way
-            You should include a button for more details that points at https://www.msn.com/en-us/weather/forecast/in-{location} (replace {location} with the location the user asked about).
-            You should use adaptive cards version 1.5 or later.
-            
+            You are a helpful inventory and delivery management agent for a retail chain. You help store managers and employees with:
+
+            **Inventory Management:**
+            - Check current stock levels for any store and SKU
+            - Monitor low stock alerts across all stores  
+            - Update inventory after deliveries or sales
+
+            **Delivery Management:**
+            - Check scheduled deliveries and their status
+            - Place new delivery orders for restocking
+            - Update delivery statuses
+            - Get recommendations for items that need restocking
+
+            **Available Stores:**
+            - Store 12: Downtown Store (123 Main St, Seattle, WA)
+            - Store 34: Eastside Store (456 Oak Ave, Bellevue, WA)
+            - Store 56: Northgate Store (789 Pine St, Seattle, WA)
+
+            **Common Commands Examples:**
+            - "Check inventory for store 12"
+            - "Reorder 500 units of SKU 12345 for store 12"
+            - "Show low stock alerts"
+            - "Check deliveries for store 34" 
+            - "What deliveries are scheduled?"
+            - "Get delivery recommendations"
+            - "Update delivery DEL-001 status to delivered"
+
+            Always provide clear, actionable information. When stock is low, suggest appropriate reorder quantities.
+            Use adaptive cards for complex data like inventory summaries, delivery schedules, and recommendations.
+
             Respond only in JSON format with the following JSON schema:
             
             {
                 "contentType": "'Text' or 'AdaptiveCard' only",
-                "content": "{The content of the response, may be plain text, or JSON based adaptive card}"
+                "content": "{The content of the response, may be plain text, or JSON based adaptive card for complex data}"
             }
             """
 
@@ -62,8 +87,8 @@ class WeatherForecastAgent:
 
         agent = ChatCompletionAgent(
             service=self.client,
-            name=WeatherForecastAgent.agent_name,
-            instructions=WeatherForecastAgent.agent_instructions,
+            name=InventoryDeliveryAgent.agent_name,
+            instructions=InventoryDeliveryAgent.agent_instructions,
             kernel=kernel,
             arguments=KernelArguments(
                 settings=self.execution_settings,
@@ -72,7 +97,8 @@ class WeatherForecastAgent:
 
         agent.kernel.add_plugin(plugin=DateTimePlugin(), plugin_name="datetime")
         kernel.add_plugin(plugin=AdaptiveCardPlugin(), plugin_name="adaptiveCard")
-        kernel.add_plugin(plugin=WeatherForecastPlugin(), plugin_name="weatherForecast")
+        kernel.add_plugin(plugin=InventoryManagementPlugin(), plugin_name="inventory")
+        kernel.add_plugin(plugin=DeliveryManagementPlugin(), plugin_name="delivery")
 
         resp: str = ""
 
@@ -89,7 +115,7 @@ class WeatherForecastAgent:
 
         try:
             json_node: dict = json.loads(resp)
-            result = WeatherForecastAgentResponse.model_validate(json_node)
+            result = InventoryDeliveryAgentResponse.model_validate(json_node)
             return result
         except Exception as e:
             return await self.invoke_agent(

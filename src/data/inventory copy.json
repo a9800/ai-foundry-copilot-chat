@@ -1,0 +1,121 @@
+{
+  "stores": {
+    "12": {
+      "name": "Downtown Store",
+      "location": "123 Main St, Seattle, WA",
+      "inventory": {
+        "12345": {
+          "sku": "12345",
+          "name": "Premium Coffee Beans",
+          "category": "Beverages",
+          "current_stock": 45,
+          "minimum_threshold": 100,
+          "maximum_capacity": 1000,
+          "unit": "bags",
+          "cost_per_unit": 12.50,
+          "supplier": "Coffee Co."
+        },
+        "67890": {
+          "sku": "67890",
+          "name": "Organic Tea Bags",
+          "category": "Beverages",
+          "current_stock": 150,
+          "minimum_threshold": 80,
+          "maximum_capacity": 500,
+          "unit": "boxes",
+          "cost_per_unit": 8.75,
+          "supplier": "Tea Masters"
+        },
+        "11111": {
+          "sku": "11111",
+          "name": "Chocolate Cookies",
+          "category": "Snacks",
+          "current_stock": 25,
+          "minimum_threshold": 50,
+          "maximum_capacity": 300,
+          "unit": "packages",
+          "cost_per_unit": 4.99,
+          "supplier": "Sweet Treats Inc."
+        }
+      }
+    },
+    "34": {
+      "name": "Eastside Store",
+      "location": "456 Oak Ave, Bellevue, WA",
+      "inventory": {
+        "12345": {
+          "sku": "12345",
+          "name": "Premium Coffee Beans",
+          "category": "Beverages",
+          "current_stock": 200,
+          "minimum_threshold": 100,
+          "maximum_capacity": 1000,
+          "unit": "bags",
+          "cost_per_unit": 12.50,
+          "supplier": "Coffee Co."
+        },
+        "67890": {
+          "sku": "67890",
+          "name": "Organic Tea Bags",
+          "category": "Beverages",
+          "current_stock": 90,
+          "minimum_threshold": 80,
+          "maximum_capacity": 500,
+          "unit": "boxes",
+          "cost_per_unit": 8.75,
+          "supplier": "Tea Masters"
+        },
+        "22222": {
+          "sku": "22222",
+          "name": "Energy Bars",
+          "category": "Snacks",
+          "current_stock": 75,
+          "minimum_threshold": 60,
+          "maximum_capacity": 400,
+          "unit": "boxes",
+          "cost_per_unit": 15.99,
+          "supplier": "Healthy Snacks Co."
+        }
+      }
+    },
+    "56": {
+      "name": "Northgate Store",
+      "location": "789 Pine St, Seattle, WA",
+      "inventory": {
+        "12345": {
+          "sku": "12345",
+          "name": "Premium Coffee Beans",
+          "category": "Beverages",
+          "current_stock": 10,
+          "minimum_threshold": 100,
+          "maximum_capacity": 1000,
+          "unit": "bags",
+          "cost_per_unit": 12.50,
+          "supplier": "Coffee Co."
+        },
+        "11111": {
+          "sku": "11111",
+          "name": "Chocolate Cookies",
+          "category": "Snacks",
+          "current_stock": 180,
+          "minimum_threshold": 50,
+          "maximum_capacity": 300,
+          "unit": "packages",
+          "cost_per_unit": 4.99,
+          "supplier": "Sweet Treats Inc."
+        },
+        "33333": {
+          "sku": "33333",
+          "name": "Fresh Milk",
+          "category": "Dairy",
+          "current_stock": 8,
+          "minimum_threshold": 20,
+          "maximum_capacity": 100,
+          "unit": "gallons",
+          "cost_per_unit": 3.99,
+          "supplier": "Dairy Fresh"
+        }
+      }
+    }
+  }
+}

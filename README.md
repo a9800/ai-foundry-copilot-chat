@@ -1,10 +1,47 @@
-# AI Foundry to Copilot Chat
+# AI Foundry Inventory & Delivery Management Agent
 
-This project demonstrates how to develop AI agents locally using Azure AI Foundry through Semantic Kernel or the Microsoft 365 Agents Framework, and interact with them in Microsoft 365 through Copilot Chat.
+This project demonstrates how to develop AI agents locally using Azure AI Foundry through Semantic Kernel and the Microsoft 365 Agents Framework, specifically showcasing an **Inventory and Delivery Management Agent** for retail operations.
 
-This Agent Sample is intended to introduce you to the basics of integrating Semantic Kernel with the Microsoft 365 Agents SDK in order to build powerful AI agents that can be deployed and accessed through M365 Copilot. It serves as both a learning tool and a foundation for developing custom agents that integrate seamlessly with the Microsoft 365 ecosystem.
+This Agent Sample provides a comprehensive business use case for integrating Semantic Kernel with the Microsoft 365 Agents SDK to build powerful AI agents that can manage inventory, track deliveries, and assist with retail operations through M365 Copilot. It serves as both a learning tool and a practical foundation for developing custom business agents that integrate seamlessly with the Microsoft 365 ecosystem.
 
 ***Note:*** This sample requires JSON output from the model which works best from newer versions of the model such as `gpt-4o-mini`.
+
+## Agent Features
+
+This **Inventory & Delivery Management Agent** provides comprehensive retail operations support:
+
+### 🏪 **Inventory Management**
+- **Stock Level Monitoring**: Check current inventory across all stores and SKUs
+- **Low Stock Alerts**: Automated alerts for items below minimum thresholds
+- **Inventory Updates**: Track stock changes after deliveries and sales
+- **Multi-Store Support**: Manage inventory for multiple retail locations
+
+### 🚚 **Delivery Management**
+- **Delivery Tracking**: Monitor scheduled deliveries and their status
+- **Order Placement**: Place new delivery orders with automatic calculations
+- **Status Updates**: Update delivery statuses throughout the fulfillment process
+- **Smart Recommendations**: AI-powered suggestions for restocking needs
+
+### 📋 **Sample Commands**
+The agent responds to natural language commands such as:
+- `"Check inventory for store 12"`
+- `"Reorder 500 units of SKU 12345 for store 12"`
+- `"Show low stock alerts"`
+- `"Check deliveries for store 34"`
+- `"What deliveries are scheduled?"`
+- `"Get delivery recommendations"`
+- `"Update delivery DEL-001 status to delivered"`
+
+### 🏬 **Available Stores**
+- **Store 12**: Downtown Store (123 Main St, Seattle, WA)
+- **Store 34**: Eastside Store (456 Oak Ave, Bellevue, WA)
+- **Store 56**: Northgate Store (789 Pine St, Seattle, WA)
+
+### 📱 **Rich User Experience**
+The agent provides responses through:
+- **Adaptive Cards**: Beautiful, interactive cards for complex data
+- **Natural Language**: Clear, actionable text responses
+- **Action Buttons**: Interactive elements like "Track Delivery" buttons
 
 ## Prerequisites
 
@@ -101,7 +138,12 @@ Before testing in Azure Bot Service Web Chat, it's recommended to test your agen
 
 4. **Test Your Agent**
    
-   Use the playground interface to send messages to your agent and verify it responds correctly before proceeding to other testing methods.
+   Use the playground interface to send inventory and delivery management commands to your agent:
+   - Try: `"Check inventory for store 12"`
+   - Try: `"Reorder 100 units of SKU 12345 for store 12"`
+   - Try: `"Show delivery recommendations"`
+   
+   Verify the agent responds with appropriate inventory data and adaptive cards before proceeding to other testing methods.
 
 ### Using the Agent in WebChat
 
@@ -130,6 +172,7 @@ To make your agent available in Microsoft Teams and Microsoft 365 Copilot, you n
    - Replace `<<BOT_DOMAIN>>` with your dev tunnel domain (e.g., `abc123-3978.inc1.devtunnels.ms`)
    - Update the `validDomains` array with your bot's domain
    - Ensure the `botId` matches your Azure Bot's Application ID
+   - The manifest is already configured for the **Inventory & Delivery Management Agent**
 
 3. **Create the deployment package**
    ```powershell
@@ -160,9 +203,10 @@ To make your agent available in Microsoft Teams and Microsoft 365 Copilot, you n
 ### Verify Deployment
 
 After successful upload:
-- The agent will appear in **Microsoft Teams** under Apps
-- It will be available in **Microsoft 365 Copilot** as a custom agent
-- Users can install and interact with the agent through chat
+- The **Inventory & Delivery Management Agent** will appear in **Microsoft Teams** under Apps
+- It will be available in **Microsoft 365 Copilot** as a custom business agent
+- Users can install and interact with the agent for retail operations through chat
+- Test with commands like `"Check inventory for store 12"` to verify functionality
 
 ### Important Notes
 
